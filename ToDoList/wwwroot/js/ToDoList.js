@@ -13,9 +13,9 @@ function loadDataTable() {
             "datatype": "json"
         },
         "columns": [
-        { "data": "name", "width": "30%" },
-        { "data": "task", "width": "30%" },
-        { "data": "status", "width": "30%" },
+        { "data": "name", "width": "20%" },
+        { "data": "task", "width": "20%" },
+        { "data": "status", "width": "20%" },
         {
             "data": "id",
             "render": function (data) {
@@ -24,16 +24,42 @@ function loadDataTable() {
                 Edit
                 </a>
                   &nbsp;
-                 <a class='btn btn-danger text-white' style='cursor:pointer; width:100px;'>
+                 <a class='btn btn-danger text-white' style='cursor:pointer; width:70px;'
+                onclick=Delete('/api/ToDo?id='+${data})>
                  Delete
                 </a>
                 </div>`;
-            }, "width": "30%"
+            }, "width": "40%"
         }
         ],
         "language": {
             "emptyTable": "no data found"
     },
         "width" : "100%"
+    })
+}
+
+function Delete(url) {
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover",
+        icon: "warning",
+        dangerMode: true
+    }).then((willDelete) => {
+        if (willDelete) {
+            $.ajax({
+                type: "DELETE",
+                url: url,
+                success: function (data) {
+                    if (data.success) {
+                        toastr.success(data.message);
+                        dataTable.ajax.reload();
+                    }
+                    else {
+                        toastr.error(data.message);
+                    }
+                }
+            })
+        }
     })
 }

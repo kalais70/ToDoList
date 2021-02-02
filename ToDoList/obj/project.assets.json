@@ -6181,11 +6181,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kalai Avows\\ToDoList\\ToDoList\\ToDoList.csproj",
+      "projectUniqueName": "C:\\Users\\Kalai Avows\\Desktop\\ToDoList\\ToDoList\\ToDoList.csproj",
       "projectName": "ToDoList",
-      "projectPath": "C:\\Users\\Kalai Avows\\ToDoList\\ToDoList\\ToDoList.csproj",
+      "projectPath": "C:\\Users\\Kalai Avows\\Desktop\\ToDoList\\ToDoList\\ToDoList.csproj",
       "packagesPath": "C:\\Users\\Kalai Avows\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kalai Avows\\ToDoList\\ToDoList\\obj\\",
+      "outputPath": "C:\\Users\\Kalai Avows\\Desktop\\ToDoList\\ToDoList\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

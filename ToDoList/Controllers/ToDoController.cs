@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,21 @@ namespace ToDoList.Controllers
             _db = db;
         }
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            return Json(new { data = _db.ToDo.ToList()});
+            return Json(new { data =await _db.ToDo.ToListAsync() });
+        }
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var todoFromDb =await _db.ToDo.FirstOrDefaultAsync(u => u.Id == id);
+            if (todoFromDb == null)
+            {
+                return Json(new { success = false, message = "Error While Deleting" });
+            }
+            _db.ToDo.Remove(todoFromDb);
+            await _db.SaveChangesAsync();
+            return Json(new { success = true, message = "Deleted Successful" });
         }
     }
 }
