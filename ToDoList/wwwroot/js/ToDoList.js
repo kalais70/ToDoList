@@ -6,7 +6,10 @@ $(document).ready(function () {
 });
 
 function loadDataTable() {
+    
     dataTable = $('#DT_load').DataTable({
+        paging: false,
+        searching: false,
         "ajax": {
             "url": "/api/ToDo",
             "type": "GET",
