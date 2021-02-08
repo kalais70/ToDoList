@@ -6,19 +6,20 @@ $(document).ready(function () {
 });
 
 function loadDataTable() {
-    
     dataTable = $('#DT_load').DataTable({
-        paging: false,
-        searching: false,
         "ajax": {
             "url": "/api/ToDo",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
-        { "data": "name", "width": "20%" },
-        { "data": "task", "width": "20%" },
-        { "data": "status", "width": "20%" },
+        { "data": "name", "width": "10%" },
+            { "data": "task", "width": "10%" },
+            { "data": "subTask", "width": "10%" },
+            { "data": "status", "width": "10%" },
+            { "data": "remarks", "width": "10%" },
+            { "data": "createdDate", "width": "10%" },
+            { "data": "updatedDate", "width": "10%" },
         {
             "data": "id",
             "render": function (data) {
@@ -27,11 +28,12 @@ function loadDataTable() {
                 Edit
                 </a>
                   &nbsp;
-                 <a class='btn btn-danger text-white' style='cursor:pointer; width:70px;'
+                 <a class='btn btn-danger text-white' style='cursor:pointer; width:100px;'
                 onclick=Delete('/api/ToDo?id='+${data})>
                  Delete
                 </a>
                 </div>`;
+              
             }, "width": "40%"
         }
         ],

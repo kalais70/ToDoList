@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,6 +16,10 @@ namespace ToDoList.Model
         [Required]
         public String Name { get; set; }
         public string Task { get; set; }
+        public string SubTask { get; set; }
         public string Status { get; set; }
-    }
+        public string Remarks { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
+    }   
 }

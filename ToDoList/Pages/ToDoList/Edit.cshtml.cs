@@ -30,7 +30,11 @@ namespace ToDoList.Pages.ToDoList
                 var ToDoFromDb = await _db.ToDo.FindAsync(ToDo.Id);
                 ToDoFromDb.Name = ToDo.Name;
                 ToDoFromDb.Task = ToDo.Task;
+                ToDoFromDb.SubTask = ToDo.SubTask;
                 ToDoFromDb.Status = ToDo.Status;
+                ToDoFromDb.Remarks = ToDo.Remarks;
+                ToDoFromDb.CreatedDate = ToDo.CreatedDate;
+                ToDoFromDb.UpdatedDate = ToDo.UpdatedDate;
 
                 await _db.SaveChangesAsync();
                 return RedirectToPage("Index");
